@@ -1,0 +1,23 @@
+<p>heroes works! ~ From Brock</p>
+<p>{{ selectedHero?.name === "Thor" ? "An Asgardian" : "Someone unimportant" }} says hello!</p>
+
+<!-- structural directive -->
+<p (click)='selectChampion(hero)' class='hero-name' *ngFor='let hero of heroes'>
+    {{ hero.name }}
+</p>
+
+<!-- display the alias of the selected Hero -->
+<div *ngIf='selectedHero'>
+    <h6>{{ selectedHero.alias }}</h6>
+    
+    <!-- attribute binding in action! -->
+    <img class='hero-image' [src]='selectedHero.image' />
+</div>
+
+<button (click)="changeHeroToThor()">Change To Thor</button>
+
+<!-- <input type="text" [(ngModel)]="selectedHero.name" /> -->
+<!-- 
+    [] = attribute binding, javascript controlling html
+    () = event emitting, html sending events to javascript
+-->
